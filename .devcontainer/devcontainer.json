@@ -1,12 +1,20 @@
 {
-  "name": ".net core koans",
-  "extensions": ["vsls-contrib.codetour", "ms-dotnettools.csharp"],
-  "settings": {
-    "files.exclude": {
-      "**/CODE_OF_CONDUCT.md": true,
-      "**/CONTRIBUTING.md": true,
-      "**/appveyor.yml": true,
-      ".all-contributorsrc": true
-    }
-  }
+	"name": ".net core koans",
+	"extensions": [
+		"vsls-contrib.codetour",
+		"ms-dotnettools.csharp"
+	],
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"files.exclude": {
+			"**": true, //the dockerfile will load all the file
+		}
+	},
+	//"postCreateCommand": "dotnet restore",
+	"build": {
+		"dockerfile": "../Dockerfile",
+		"args": {
+			"VARIANT": "3.1"
+		}
+	}
 }
